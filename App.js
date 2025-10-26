@@ -25,7 +25,7 @@ export default function App() {
         onPress={alertSubComponente}
         styleBtn={globalStyles.btn.secondary}
         styleText={globalStyles.textWhite}
-        text={"SubComponente"}
+        text={"SubComponente Yunier"}
       />
     </View>
   );
