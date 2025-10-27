@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a2c88301-30d9-4426-b1b0-e99add8a7ac9"
+      }
+    },
+    "owner": "yunperez"
   }
 }
