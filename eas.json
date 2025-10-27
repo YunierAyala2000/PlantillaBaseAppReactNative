@@ -9,24 +9,35 @@
       "distribution": "internal"
     },
    "preview": {
-    "distribution": "internal",
-    "android": {
-      "buildType": "apk"
-    }
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      }
     },
     "production": {
       "autoIncrement": true
     }
   },
-  "submit": {
-    "production": {}
+ "submit": {
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./credentials/google-service-account.json"
+      },
+      "ios": {
+        "appleId": "tu-correo@apple.com",
+        "ascAppId": "1234567890"
+      }
+    }
   }
 }
 
 
 // Opción 2️⃣ — Hacer un build directo en formato APK
 
-// Si solo quieres probar la app sin pasar por AAB, puedes hacerlo con:
+// Si solo quieres probar la app sin pasar por AAB, puedes hacerlo con en windoust no funciona:
 
 // npx eas build -p android --profile preview --local
 
@@ -39,3 +50,9 @@
 //     "buildType": "apk"
 //   }
 // }
+
+
+// generala ap ken el servidor de Expo y nos permite descargarla:
+// npx eas build -p android --profile preview
+
+
