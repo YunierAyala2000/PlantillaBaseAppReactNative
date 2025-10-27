@@ -1,0 +1,41 @@
+{
+  "cli": {
+    "version": ">= 16.24.1",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+   "preview": {
+    "distribution": "internal",
+    "android": {
+      "buildType": "apk"
+    }
+    },
+    "production": {
+      "autoIncrement": true
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
+
+
+// Opción 2️⃣ — Hacer un build directo en formato APK
+
+// Si solo quieres probar la app sin pasar por AAB, puedes hacerlo con:
+
+// npx eas build -p android --profile preview --local
+
+
+// Solo asegúrate que en tu eas.json tengas:
+
+// "preview": {
+//   "distribution": "internal",
+//   "android": {
+//     "buildType": "apk"
+//   }
+// }
