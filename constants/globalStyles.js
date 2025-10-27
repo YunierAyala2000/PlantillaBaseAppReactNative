@@ -9,20 +9,20 @@ export const globalStyles = StyleSheet.create({
   },
 
   colors: {
-    primary: { background: "#0D6EFD" },
-    secondary: { background: "#6C757D" },
+    primary: { backgroundColor: "#0D6EFD" },
+    secondary: { backgroundColor: "#6C757D" },
   },
 
   btn: {
     primary: {
-      background: "#0D6EFD",
+      backgroundColor: "#0D6EFD",
       padding: 8,
       borderRadius: 5,
       marginTop: 10,
       alignItems: "center",
     },
     secondary: {
-      background: "#6C757D",
+      backgroundColor: "#6C757D",
       padding: 8,
       borderRadius: 5,
       marginTop: 10,
