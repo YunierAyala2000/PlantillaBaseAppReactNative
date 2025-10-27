@@ -1,7 +1,7 @@
 import { Platform, StyleSheet } from "react-native";
 
 export const globalStyles = StyleSheet.create({
-  container: {
+  containerAreaSafe: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",

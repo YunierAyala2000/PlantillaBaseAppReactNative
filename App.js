@@ -11,33 +11,26 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    // <View style={styles.container}>
+    //   <Text>Open up App.js to start working on your app!</Text>
+    //   <StatusBar style="auto" />
 
-      <TouchableOpacity
-        style={globalStyles.btn.primary}
-        onPress={() => alert("hola")}
-      >
-        <Text style={globalStyles.textWhite}>hola Junier</Text>
-      </TouchableOpacity>
+    //   <CustomButton
+    //     onPress={alertSubComponente}
+    //     styleBtn={globalStyles.btn.secondary}
+    //     styleText={globalStyles.textWhite}
+    //     text={"SubComponente Yunier"}
+    //   />
+    // </View>
 
-      <CustomButton
-        onPress={alertSubComponente}
-        styleBtn={globalStyles.btn.secondary}
-        styleText={globalStyles.textWhite}
-        text={"SubComponente Yunier"}
-      />
-
-      <CustomProgres text="Cargando..." progressSize="large" />
-    </View>
+    <CustomProgres text="Cargandoooo..." progressSize="large" />
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#373737ff",
     alignItems: "center",
     justifyContent: "center",
   },
