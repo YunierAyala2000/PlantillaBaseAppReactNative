@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { globalStyles } from "./styles/globalStyles";
 
 import { CustomButton } from "./components/generals/CustomButton";
+import { CustomProgres } from "./components/generals/CustomProgres";
 
 export default function App() {
   const alertSubComponente = () => {
@@ -27,6 +28,12 @@ export default function App() {
         styleText={globalStyles.textWhite}
         text={"SubComponente Yunier"}
       />
+
+      <CustomProgres
+        text="Cargando..."
+        textStyle={styles.text2}
+        progressSize="large"
+      />
     </View>
   );
 }
@@ -37,5 +44,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  text2: {
+    top: 30,
+    color: "#2947f2ff",
   },
 });
