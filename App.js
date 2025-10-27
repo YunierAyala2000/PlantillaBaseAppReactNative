@@ -1,36 +1,49 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Alert } from "react-native";
 import { globalStyles } from "./styles/globalStyles";
 
 import { CustomButton } from "./components/generals/CustomButton";
 import { CustomProgres } from "./components/generals/CustomProgres";
 
 export default function App() {
-  const alertSubComponente = () => {
-    alert("subComponente");
+  const alertNavegador = () => {
+    alert("subComponente del navegador");
+  };
+
+  const alertDispositivo = () => {
+    Alert.alert("Alerta nativa del Movil");
   };
 
   return (
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working on your app!</Text>
-    //   <StatusBar style="auto" />
+    <View style={globalStyles.containerAreaSafe}>
+      <StatusBar style="auto" />
+      <Text>Open up App.js to start working on your app!</Text>
 
-    //   <CustomButton
-    //     onPress={alertSubComponente}
-    //     styleBtn={globalStyles.btn.secondary}
-    //     styleText={globalStyles.textWhite}
-    //     text={"SubComponente Yunier"}
-    //   />
-    // </View>
+      <CustomButton
+        onPress={alertNavegador}
+        styleBtn={globalStyles.btn.primary}
+        styleText={globalStyles.textWhite}
+        text={"Mostrar Alerta del navegador"}
+      />
 
-    <CustomProgres text="Cargandoooo..." progressSize="large" />
+      <CustomButton
+        onPress={alertDispositivo}
+        styleBtn={globalStyles.btn.secondary}
+        styleText={globalStyles.textWhite}
+        text={"Alerta nativa del dispositivo"}
+      />
+
+      <CustomProgres
+        containerStyle={styles.container}
+        text="Cargando test..."
+        progressSize="large"
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#373737ff",
     alignItems: "center",
     justifyContent: "center",
   },
