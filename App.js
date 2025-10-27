@@ -29,11 +29,7 @@ export default function App() {
         text={"SubComponente Yunier"}
       />
 
-      <CustomProgres
-        text="Cargando..."
-        textStyle={styles.text2}
-        progressSize="large"
-      />
+      <CustomProgres text="Cargando..." progressSize="large" />
     </View>
   );
 }

@@ -8,24 +8,26 @@ import {
   TextStyle,
 } from "react-native";
 
+type HexColor = `#${string}`;
+
 interface CustomButtonProps {
-  styleContainer?: StyleProp<ViewStyle>;
+  containerStyle?: StyleProp<ViewStyle>;
   text: string;
   textStyle?: StyleProp<TextStyle>;
   progressSize?: number | "large" | "small";
-  progressColor?: string;
+  progressColor?: HexColor;
 }
 
 export function CustomProgres({
-  styleContainer,
+  containerStyle,
   text,
   textStyle,
   progressSize,
   progressColor,
 }: CustomButtonProps) {
   return (
-    <View style={styleContainer || styles.container}>
-      <ActivityIndicator size={progressSize} color="#2947f2ff" />
+    <View style={containerStyle || styles.container}>
+      <ActivityIndicator size={progressSize} color={progressColor} />
       <Text style={textStyle || styles.text}>{text}</Text>
     </View>
   );
