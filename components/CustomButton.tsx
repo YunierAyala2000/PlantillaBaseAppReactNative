@@ -1,6 +1,7 @@
 import { FontAwesome5 } from "@expo/vector-icons";
 import {
   StyleProp,
+  StyleSheet,
   Text,
   TextStyle,
   TouchableOpacity,
@@ -30,7 +31,7 @@ export function CustomButton({
   iconPosition = "right",
 }: CustomButtonProps) {
   return (
-    <TouchableOpacity style={styleBtn} onPress={onPress}>
+    <TouchableOpacity style={styleBtn || style.btnPrimary} onPress={onPress}>
       <View
         style={{
           flexDirection: "row",
@@ -43,7 +44,7 @@ export function CustomButton({
           <FontAwesome5 name={iconName} size={iconSize} color={iconColor} />
         )}
 
-        <Text style={styleText}>{text}</Text>
+        <Text style={styleText || style.textWhite}>{text}</Text>
 
         {iconName && iconPosition === "right" && (
           <FontAwesome5 name={iconName} size={iconSize} color={iconColor} />
@@ -52,3 +53,19 @@ export function CustomButton({
     </TouchableOpacity>
   );
 }
+
+const style = StyleSheet.create({
+  btnPrimary: {
+    backgroundColor: "#0D6EFD",
+    padding: 8,
+    borderRadius: 5,
+    marginTop: 10,
+    alignItems: "center",
+  },
+
+  textWhite: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    padding: 2,
+  },
+});
