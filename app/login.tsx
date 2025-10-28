@@ -27,20 +27,26 @@ export default function Login() {
   return (
     <ThemedView style={styles.container}>
       <View style={styles.form}>
-        <Image
+        <View
           style={{
-            height: 170,
-            width: 170,
-            position: "absolute",
-            top: -110,
-            left: "50%",
-            transform: [{ translateX: -85 }],
+            flex: 1,
+            justifyContent: "center",
             alignItems: "center",
-            borderRadius: 100,
-            backgroundColor: "#ffff",
           }}
-          source={require("../assets/images/iconApp3-removebg-preview.png")}
-        />
+        >
+          <Image
+            style={{
+              height: 170,
+              width: 170,
+              position: "absolute",
+              top: -130,
+              alignItems: "center",
+              borderRadius: 100,
+              backgroundColor: "#ffff",
+            }}
+            source={require("../assets/images/iconApp3-removebg-preview.png")}
+          />
+        </View>
 
         <ThemedText type="subtitle" style={styles.title}>
           Usuario:
