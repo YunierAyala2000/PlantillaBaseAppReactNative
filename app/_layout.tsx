@@ -1,6 +1,5 @@
 // app/_layout.js
 import { CustomProgres } from "@/components/CustomProgres";
-import { AuthProvider, useAuth } from "@/context/AuthContext";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import {
   DarkTheme,
@@ -11,6 +10,7 @@ import { Redirect, Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import "react-native-reanimated";
+import { AuthProvider, useAuth } from "../context/AuthContext";
 
 function RootNavigation() {
   const { user, loading } = useAuth();

@@ -5,7 +5,7 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Component() {
   const { user, logout } = useAuth();
@@ -28,7 +28,7 @@ export default function Component() {
         source={require("../../assets/images/medida.png")}
       />
 
-      <Text style={style.Title}>{user?.email}</Text>
+      <Text style={style.Title}>{user?.telefono}</Text>
       <CustomButton
         text="Cerrrar sesion"
         onPress={logoutUser}

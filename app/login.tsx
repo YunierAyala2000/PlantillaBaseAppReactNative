@@ -2,11 +2,11 @@ import { CustomButton } from "@/components/CustomButton";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { globalStyles } from "@/constants/globalStyles";
-import { useAuth } from "@/context/AuthContext";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { router } from "expo-router";
 import React, { useRef, useState } from "react";
 import { Animated, Image, StyleSheet, TextInput, View } from "react-native";
+import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -49,7 +49,16 @@ export default function Login() {
   // 🔹 Login simulado
   const handleLogin = async () => {
     if (email === "YunPerez" && password === "12345") {
-      const userData = { email, token: "fake-token-123" };
+      const userData = {
+        id: 1,
+        idGym: 1,
+        usuario: "1003787711",
+        nombre: "Junier Ayala Perez",
+        telefono: "3203641091",
+        idRol: 2,
+        idEstado: 1,
+        idPlan: 2,
+      };
       await login(userData);
       router.replace("/(1-conversor)");
     } else {

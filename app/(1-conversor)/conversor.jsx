@@ -43,9 +43,9 @@ export default function Component() {
 
       <TouchableOpacity
         onPress={() => router.back()}
-        style={globalStyles.btn.secondary}
+        style={globalStyles.btnSecondary}
       >
-        <Text style={globalStyles.btn.textWhite}>Volver</Text>
+        <Text style={globalStyles.btnTextWhite}>Volver</Text>
       </TouchableOpacity>
     </View>
   );
