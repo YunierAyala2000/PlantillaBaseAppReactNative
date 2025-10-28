@@ -4,12 +4,12 @@ import {
   Pressable,
   StyleProp,
   StyleSheet,
-  Text,
   TextStyle,
   TouchableOpacity,
-  View,
   ViewStyle,
 } from "react-native";
+import { ThemedText } from "./themed-text";
+import { ThemedView } from "./themed-view";
 
 interface CustomModalProps {
   visible: boolean;
@@ -50,19 +50,23 @@ export const CustomModal: React.FC<CustomModalProps> = ({
       onRequestClose={onClose}
     >
       <Pressable style={styles.overlay} onPress={onClose}>
-        <View style={[styles.modalContainer, containerStyle]}>
-          {title && <Text style={[styles.title, titleStyle]}>{title}</Text>}
+        <ThemedView style={[styles.modalContainer, containerStyle]}>
+          {title && (
+            <ThemedText style={[styles.title, titleStyle]}>{title}</ThemedText>
+          )}
           {message && (
-            <Text style={[styles.message, messageStyle]}>{message}</Text>
+            <ThemedText style={[styles.message, messageStyle]}>
+              {message}
+            </ThemedText>
           )}
 
-          <View style={styles.buttonContainer}>
+          <ThemedView style={styles.buttonContainer}>
             {showCancel && (
               <TouchableOpacity
                 style={[styles.button, styles.cancelButton, cancelButtonStyle]}
                 onPress={onClose}
               >
-                <Text style={styles.cancelText}>{cancelText}</Text>
+                <ThemedText style={styles.cancelText}>{cancelText}</ThemedText>
               </TouchableOpacity>
             )}
 
@@ -70,10 +74,10 @@ export const CustomModal: React.FC<CustomModalProps> = ({
               style={[styles.button, styles.confirmButton, confirmButtonStyle]}
               onPress={onConfirm}
             >
-              <Text style={styles.confirmText}>{confirmText}</Text>
+              <ThemedText style={styles.confirmText}>{confirmText}</ThemedText>
             </TouchableOpacity>
-          </View>
-        </View>
+          </ThemedView>
+        </ThemedView>
       </Pressable>
     </Modal>
   );
@@ -87,7 +91,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   modalContainer: {
-    backgroundColor: "#fff",
     borderRadius: 10,
     padding: 20,
     width: "80%",
@@ -118,18 +121,18 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   confirmButton: {
-    backgroundColor: "#007AFF",
+    backgroundColor: "#0D6EFD",
   },
   confirmText: {
-    color: "#fff",
     fontWeight: "bold",
+    color: "#fff",
   },
   cancelButton: {
-    backgroundColor: "#ddd",
+    backgroundColor: "#DC3545",
   },
   cancelText: {
-    color: "#333",
     fontWeight: "bold",
+    color: "#fff",
   },
 });
 
