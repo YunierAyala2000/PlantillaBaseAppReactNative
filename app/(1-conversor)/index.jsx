@@ -1,24 +1,11 @@
 import { CustomButton } from "@/components/CustomButton";
 import { globalStyles } from "@/constants/globalStyles";
 import { router } from "expo-router";
-import { useEffect, useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-import { getUser } from "../../utils/authStorage";
+import { logoutUser } from "../../utils/authStorage";
 
 export default function Component() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const loadSession = async () => {
-      const savedUser = await getUser();
-      setUser(savedUser);
-      console.log(user);
-      // if (savedUser) setUser(savedUser);
-    };
-    loadSession();
-  }, []);
-
   return (
     <View style={style.Container}>
       <Image
@@ -26,7 +13,16 @@ export default function Component() {
         source={require("../../assets/images/medida.png")}
       />
 
-      <Text style={style.Title}>{user.email}</Text>
+      <Text style={style.Title}></Text>
+      <CustomButton
+        text="Cerrrar sesion"
+        onPress={() => {
+          logoutUser();
+          router.replace("/login");
+        }}
+        styleBtn={globalStyles.btn.primary}
+        styleText={globalStyles.btn.textWhite}
+      />
 
       <Text style={style.Title}>Conversor</Text>
 

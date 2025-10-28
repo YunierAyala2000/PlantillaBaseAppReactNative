@@ -1,13 +1,12 @@
 import {
-  StyleSheet,
-  View,
   ActivityIndicator,
-  Text,
   StyleProp,
-  ViewStyle,
   TextStyle,
+  View,
+  ViewStyle,
 } from "react-native";
-import { globalStyles } from "../../styles/globalStyles";
+import { globalStyles } from "../constants/globalStyles";
+import { ThemedText } from "./themed-text";
 
 type HexColor = `#${string}`;
 
@@ -29,15 +28,9 @@ export function CustomProgres({
   return (
     <View style={containerStyle || globalStyles.containerAreaSafe}>
       <ActivityIndicator size={progressSize} color={progressColor} />
-      <Text style={textStyle || styles.text}>{text}</Text>
+      <ThemedText style={textStyle} type="subtitle">
+        {text}
+      </ThemedText>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    top: 10,
-    color: "#000000ff",
-    fontWeight: "bold",
-  },
-});

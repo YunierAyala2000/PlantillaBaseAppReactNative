@@ -2,23 +2,16 @@ import { ThemedText } from "@/components/themed-text";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
-import { getUser, saveUser } from "../utils/authStorage";
+import { saveUser } from "../utils/authStorage";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [user, setUser] = useState(null);
-
   const handleLogin = async () => {
     if (email === "YunPerez" && password === "12345") {
       const user = { email, token: "fake-token-123" };
       await saveUser(user);
-
-      const savedUser = await getUser();
-      setUser(savedUser);
-
-      console.log(user);
       router.replace("/(1-conversor)");
     } else {
       // Alert.alert("Error", "Credenciales incorrectas");
