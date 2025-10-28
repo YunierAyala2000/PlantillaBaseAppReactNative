@@ -6,7 +6,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useAuth } from "@/context/AuthContext";
 
 export default function Component() {
-  const { logout } = useAuth();
+  const { user, logout } = useAuth();
 
   const logoutUser = async () => {
     await logout();
@@ -20,7 +20,7 @@ export default function Component() {
         source={require("../../assets/images/medida.png")}
       />
 
-      <Text style={style.Title}></Text>
+      <Text style={style.Title}>{user?.email}</Text>
       <CustomButton
         text="Cerrrar sesion"
         onPress={logoutUser}
