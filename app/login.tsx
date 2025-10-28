@@ -5,7 +5,9 @@ import { globalStyles } from "@/constants/globalStyles";
 import { useAuth } from "@/context/AuthContext";
 import { router } from "expo-router";
 import React, { useState } from "react";
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
+
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -24,31 +26,42 @@ export default function Login() {
 
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="title" style={{ fontSize: 22, marginBottom: 20 }}>
-        Iniciar Sesión
-      </ThemedText>
+      <View style={styles.form}>
+        <ThemedText type="subtitle" style={styles.title}>
+          Usuario:
+        </ThemedText>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Usuario"
-        value={email}
-        onChangeText={setEmail}
-      />
+        <View style={styles.inputForm}>
+          <FontAwesome5 name="user-alt" size={24} />
+          <TextInput
+            placeholder="Usuario"
+            style={styles.input}
+            value={email}
+            onChangeText={setEmail}
+          />
+        </View>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Contraseña"
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-      />
+        <ThemedText type="subtitle" style={styles.title}>
+          Contraseña:
+        </ThemedText>
+        <View style={styles.inputForm}>
+          <FontAwesome5 name="lock" size={24} />
+          <TextInput
+            placeholder="Contraseña"
+            style={styles.input}
+            secureTextEntry
+            value={password}
+            onChangeText={setPassword}
+          />
+        </View>
 
-      <CustomButton
-        onPress={handleLogin}
-        text="Iniciar Sesion"
-        styleBtn={globalStyles.btnPrimary}
-        styleText={globalStyles.textWhite}
-      />
+        <CustomButton
+          onPress={handleLogin}
+          text="Iniciar Sesion"
+          styleBtn={globalStyles.btnDarkBlock}
+          styleText={globalStyles.textWhite}
+        />
+      </View>
     </ThemedView>
   );
 }
@@ -59,19 +72,44 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
+    width: "100%",
   },
+
   title: {
-    fontSize: 22,
-    textAlign: "center",
-    marginBottom: 20,
+    fontSize: 12,
+    color: "#000000ff",
   },
+
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 10,
+    backgroundColor: "#ffff",
+    padding: 30,
+    width: "100%",
+    borderRadius: 20,
+    borderWidth: 0.8,
+    borderColor: "#383838ff",
+    fontFamily:
+      "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif",
+  },
+
+  inputForm: {
+    borderWidth: 1.5,
+    borderColor: "#ecedec",
+    borderRadius: 10,
+    height: 50,
+    flexDirection: "row", // 🔹 reemplaza display:flex
+    alignItems: "center",
+    paddingLeft: 10,
+    // transition no existe en React Native
+  },
+
   input: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 5,
-    marginBottom: 10,
-    padding: 10,
-    // color: "#fff",
-    width: "80%",
+    marginLeft: 10,
+    borderRadius: 10,
+    borderWidth: 0,
+    width: "100%",
+    height: "100%",
   },
 });
