@@ -1,21 +1,20 @@
 import { ThemedText } from "@/components/themed-text";
+import { useAuth } from "@/context/AuthContext";
 import { router } from "expo-router";
 import React, { useState } from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
-import { saveUser } from "../utils/authStorage";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useAuth();
 
   const handleLogin = async () => {
     if (email === "YunPerez" && password === "12345") {
-      const user = { email, token: "fake-token-123" };
-      await saveUser(user);
+      const userData = { email, token: "fake-token-123" };
+      await login(userData);
       router.replace("/(1-conversor)");
     } else {
-      // Alert.alert("Error", "Credenciales incorrectas");
-
       alert("Credenciales incorrectas");
     }
   };

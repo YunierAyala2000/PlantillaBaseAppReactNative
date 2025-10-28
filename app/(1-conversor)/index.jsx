@@ -3,9 +3,16 @@ import { globalStyles } from "@/constants/globalStyles";
 import { router } from "expo-router";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-import { logoutUser } from "../../utils/authStorage";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Component() {
+  const { logout } = useAuth();
+
+  const logoutUser = async () => {
+    await logout();
+    router.replace("/login");
+  };
+
   return (
     <View style={style.Container}>
       <Image
@@ -16,10 +23,7 @@ export default function Component() {
       <Text style={style.Title}></Text>
       <CustomButton
         text="Cerrrar sesion"
-        onPress={() => {
-          logoutUser();
-          router.replace("/login");
-        }}
+        onPress={logoutUser}
         styleBtn={globalStyles.btn.primary}
         styleText={globalStyles.btn.textWhite}
       />
