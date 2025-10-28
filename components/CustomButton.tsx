@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 interface CustomButtonProps {
-  text: string;
+  text?: string;
   onPress?: () => void;
   styleBtn?: StyleProp<ViewStyle>;
   styleText?: StyleProp<TextStyle>;
