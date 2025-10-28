@@ -1,15 +1,33 @@
 import { CustomButton } from "@/components/CustomButton";
 import { globalStyles } from "@/constants/globalStyles";
 import { router } from "expo-router";
+import { useEffect, useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
+import { getUser } from "../../utils/authStorage";
+
 export default function Component() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const loadSession = async () => {
+      const savedUser = await getUser();
+      setUser(savedUser);
+      console.log(user);
+      // if (savedUser) setUser(savedUser);
+    };
+    loadSession();
+  }, []);
+
   return (
     <View style={style.Container}>
       <Image
         style={{ width: 150, height: 150, marginBottom: 10 }}
         source={require("../../assets/images/medida.png")}
       />
+
+      <Text style={style.Title}>{user.email}</Text>
+
       <Text style={style.Title}>Conversor</Text>
 
       <Text style={style.Subtitle}>(cm) a (m) </Text>
