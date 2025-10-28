@@ -12,6 +12,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const { login } = useAuth();
 
   const handleLogin = async () => {
@@ -70,9 +71,18 @@ export default function Login() {
           <TextInput
             placeholder="Contraseña"
             style={styles.input}
-            secureTextEntry
+            secureTextEntry={!showPassword}
             value={password}
             onChangeText={setPassword}
+          />
+          <CustomButton
+            onPress={() => {
+              setShowPassword(!showPassword);
+            }}
+            styleBtn={{ padding: 10 }}
+            iconName={!showPassword ? "eye" : "eye-slash"}
+            iconSize={16}
+            iconColor="#000000"
           />
         </View>
 
@@ -119,6 +129,14 @@ const styles = StyleSheet.create({
     borderColor: "#383838ff",
     fontFamily:
       "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: -14, // desplazamiento horizontal (negativo = hacia la izquierda)
+      height: 3, // desplazamiento vertical
+    },
+    shadowOpacity: 0.4, // opacidad de la sombra
+    shadowRadius: 55, // difuminado (blur)
+    elevation: 10, // importante para Android
   },
 
   inputForm: {
