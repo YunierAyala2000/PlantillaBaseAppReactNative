@@ -5,7 +5,7 @@ import { globalStyles } from "@/constants/globalStyles";
 import { useAuth } from "@/context/AuthContext";
 import { router } from "expo-router";
 import React, { useState } from "react";
-import { StyleSheet, TextInput, View } from "react-native";
+import { Image, StyleSheet, TextInput, View } from "react-native";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
@@ -27,6 +27,21 @@ export default function Login() {
   return (
     <ThemedView style={styles.container}>
       <View style={styles.form}>
+        <Image
+          style={{
+            height: 170,
+            width: 170,
+            position: "absolute",
+            top: -110,
+            left: "50%",
+            transform: [{ translateX: -85 }],
+            alignItems: "center",
+            borderRadius: 100,
+            backgroundColor: "#ffff",
+          }}
+          source={require("../assets/images/iconApp3-removebg-preview.png")}
+        />
+
         <ThemedText type="subtitle" style={styles.title}>
           Usuario:
         </ThemedText>
