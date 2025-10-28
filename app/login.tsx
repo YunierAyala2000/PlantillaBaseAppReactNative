@@ -64,5 +64,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     padding: 10,
     color: "#fff",
+    width: "80%",
   },
 });

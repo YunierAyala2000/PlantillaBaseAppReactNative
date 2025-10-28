@@ -1,6 +1,8 @@
 import { CustomButton } from "@/components/CustomButton";
+import { CustomModal } from "@/components/CustomModal";
 import { globalStyles } from "@/constants/globalStyles";
 import { router } from "expo-router";
+import { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { useAuth } from "@/context/AuthContext";
@@ -11,6 +13,12 @@ export default function Component() {
   const logoutUser = async () => {
     await logout();
     router.replace("/login");
+  };
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const handleConfirm = () => {
+    setModalVisible(false);
+    alert("Acción confirmada ✅");
   };
 
   return (
@@ -24,8 +32,25 @@ export default function Component() {
       <CustomButton
         text="Cerrrar sesion"
         onPress={logoutUser}
-        styleBtn={globalStyles.btn.primary}
+        styleBtn={globalStyles.btn.danger}
         styleText={globalStyles.btn.textWhite}
+      />
+
+      <CustomButton
+        text="Modal"
+        onPress={() => setModalVisible(true)}
+        styleBtn={globalStyles.btn.success}
+        styleText={globalStyles.btn.textWhite}
+      />
+
+      <CustomModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        title="Confirmar acción"
+        message="¿Estás seguro de que quieres continuar?"
+        onConfirm={handleConfirm}
+        confirmText="Sí"
+        cancelText="No"
       />
 
       <Text style={style.Title}>Conversor</Text>
