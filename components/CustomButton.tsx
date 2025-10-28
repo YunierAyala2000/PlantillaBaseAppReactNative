@@ -1,9 +1,9 @@
 import {
-  TouchableOpacity,
-  Text,
   StyleProp,
-  ViewStyle,
+  Text,
   TextStyle,
+  TouchableOpacity,
+  ViewStyle,
 } from "react-native";
 
 interface CustomButtonProps {

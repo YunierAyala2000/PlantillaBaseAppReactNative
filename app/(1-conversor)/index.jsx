@@ -32,15 +32,15 @@ export default function Component() {
       <CustomButton
         text="Cerrrar sesion"
         onPress={logoutUser}
-        styleBtn={globalStyles.btn.danger}
-        styleText={globalStyles.btn.textWhite}
+        styleBtn={globalStyles.btnDanger}
+        styleText={globalStyles.textWhite}
       />
 
       <CustomButton
         text="Modal"
         onPress={() => setModalVisible(true)}
-        styleBtn={globalStyles.btn.success}
-        styleText={globalStyles.btn.textWhite}
+        styleBtn={globalStyles.btnSuccess}
+        styleText={globalStyles.textWhite}
       />
 
       <CustomModal
@@ -69,8 +69,8 @@ export default function Component() {
       <CustomButton
         onPress={() => router.push("/(tabs)")}
         text="cambiar vista de ejemplo de react"
-        styleBtn={globalStyles.btn.primary}
-        styleText={globalStyles.btn.textWhite}
+        styleBtn={globalStyles.btnPrimary}
+        styleText={globalStyles.textWhite}
       />
     </View>
   );

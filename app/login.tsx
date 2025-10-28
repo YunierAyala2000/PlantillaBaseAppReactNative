@@ -1,8 +1,11 @@
+import { CustomButton } from "@/components/CustomButton";
 import { ThemedText } from "@/components/themed-text";
+import { ThemedView } from "@/components/themed-view";
+import { globalStyles } from "@/constants/globalStyles";
 import { useAuth } from "@/context/AuthContext";
 import { router } from "expo-router";
 import React, { useState } from "react";
-import { Button, StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, TextInput } from "react-native";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -20,7 +23,7 @@ export default function Login() {
   };
 
   return (
-    <View style={styles.container}>
+    <ThemedView style={styles.container}>
       <ThemedText type="title" style={{ fontSize: 22, marginBottom: 20 }}>
         Iniciar Sesión
       </ThemedText>
@@ -40,8 +43,13 @@ export default function Login() {
         onChangeText={setPassword}
       />
 
-      <Button title="Ingresar" onPress={handleLogin} />
-    </View>
+      <CustomButton
+        onPress={handleLogin}
+        text="Iniciar Sesion"
+        styleBtn={globalStyles.btnPrimary}
+        styleText={globalStyles.textWhite}
+      />
+    </ThemedView>
   );
 }
 
@@ -63,7 +71,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10,
     padding: 10,
-    color: "#fff",
+    // color: "#fff",
     width: "80%",
   },
 });
