@@ -61,6 +61,10 @@ export default function Login() {
           styleBtn={globalStyles.btnDarkBlock}
           styleText={globalStyles.textWhite}
         />
+        <View style={styles.formFouter}>
+          <ThemedText type="link">🖥️ Desarollado By: 🖥️</ThemedText>
+          <ThemedText type="link">@Junier Ayala Perez</ThemedText>
+        </View>
       </View>
     </ThemedView>
   );
@@ -111,5 +115,11 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     width: "100%",
     height: "100%",
+  },
+
+  formFouter: {
+    alignContent: "center",
+    alignItems: "center",
+    margin: 0,
   },
 });
