@@ -152,6 +152,7 @@ export const globalStyles = StyleSheet.create({
   textWhite: {
     color: "#FFFFFF",
     fontSize: 16,
+    padding: 2,
   },
   textBlack: {
     color: "#000000ff",

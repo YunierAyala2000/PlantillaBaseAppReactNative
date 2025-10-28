@@ -57,9 +57,11 @@ export default function Login() {
 
         <CustomButton
           onPress={handleLogin}
-          text="Iniciar Sesion"
+          text="Ingresar"
           styleBtn={globalStyles.btnDarkBlock}
           styleText={globalStyles.textWhite}
+          iconName="arrow-circle-right"
+          iconSize={16}
         />
         <View style={styles.formFouter}>
           <ThemedText type="link">🖥️ Desarollado By: 🖥️</ThemedText>
